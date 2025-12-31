@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zero-G Playbook: Precision Vibe-Coding Protocol</title>
+    <title>Zero-G Playbook: The Precision Journey</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Base Settings */
         body { font-family: 'Inter', sans-serif; background-color: #F8FAFC; color: #1E293B; }
@@ -30,6 +30,7 @@
         .step-active { border-left-color: #4F46E5; background-color: #EEF2FF; }
         .step-inactive { border-left-color: #E2E8F0; }
         .step-inactive:hover { background-color: #F1F5F9; border-left-color: #94A3B8; }
+        .arrow-down { width: 0; height: 0; border-left: 6px solid transparent; border-right: 6px solid transparent; border-top: 8px solid #CBD5E1; margin: 4px auto; }
 
         /* Custom scrollbar for code terminals */
         .code-block::-webkit-scrollbar { height: 8px; width: 8px; }
@@ -37,21 +38,18 @@
         .code-block::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
         
         /* Utility */
-        .animate-fade-in { animation: fadeIn 0.3s ease-in-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-in { animation: fadeIn 0.4s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .gem-connector { position: absolute; left: 50%; bottom: -20px; width: 2px; height: 20px; background: #E2E8F0; transform: translateX(-50%); z-index: 0; }
+        .step-node { position: relative; z-index: 10; }
     </style>
-    <!-- Chosen Palette: Slate (Background), Indigo (Primary), Purple (Secondary), Emerald (Success/Code) -->
-    <!-- Application Structure Plan:
-         1. Hero Section: Immediate hook with the "Stop Chatting" philosophy and visual gauge.
-         2. Vibe Stack: Tool acquisition area. Toggle allows users to switch between "Quick Start" (Links) and "Builder" (Prompts) modes.
-         3. Flight Path: The core workflow. Left-hand vertical navigation acts as the "Checklist", right-hand panel shows the precise commands.
-         4. Mission Control: A "Break Glass in Case of Emergency" section for troubleshooting.
-    -->
-    <!-- Visualization & Content Choices:
-         - Gauge Chart: Visualizes the 50/50 split of Brain/Skin.
-         - Grid Layouts: Used for Gems and Anomaly cards for quick scanning.
-         - Code Terminals: Used in Phase 4 to emphasize that this is a technical copy-paste operation, not a chat.
-         - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used.
+    <!-- 
+    Updated Strategy: "The Journey"
+    - Reframed "Vibe Stack" to explain WHAT a Gem is and HOW to use it.
+    - Renamed "Flight Path" to "The Assembly Journey".
+    - Added "Handoff" indicators to show how output from one step becomes input for the next.
+    - Simplified language: "Input/Output" -> "Copy/Paste" instructions.
     -->
 </head>
 <body class="bg-slate-50 min-h-screen flex flex-col">
@@ -61,18 +59,18 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             <div class="flex items-center space-x-3">
                 <div class="w-8 h-8 bg-indigo-600 rounded flex items-center justify-center text-white font-bold shadow-lg shadow-indigo-200">Z</div>
-                <h1 class="text-xl font-bold tracking-tight text-slate-900">Zero-G Playbook <span class="text-xs font-normal text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded-full ml-2 border border-indigo-100">v2.2</span></h1>
+                <h1 class="text-xl font-bold tracking-tight text-slate-900">Zero-G Playbook <span class="text-xs font-normal text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded-full ml-2 border border-indigo-100">v2.3 Journey Edition</span></h1>
             </div>
             <nav class="hidden md:flex space-x-8 text-sm font-medium">
                 <a href="#philosophy" class="text-slate-500 hover:text-indigo-600 transition">Philosophy</a>
-                <a href="#vibe-stack" class="text-slate-500 hover:text-indigo-600 transition">Vibe Stack</a>
-                <a href="#flight-path" class="text-slate-500 hover:text-indigo-600 transition">Flight Path</a>
-                <a href="#mission-control" class="text-slate-500 hover:text-indigo-600 transition">Diagnostics</a>
+                <a href="#prerequisites" class="text-slate-500 hover:text-indigo-600 transition">Prerequisites</a>
+                <a href="#team-gems" class="text-slate-500 hover:text-indigo-600 transition">Your Team</a>
+                <a href="#assembly-journey" class="text-slate-500 hover:text-indigo-600 transition">The Journey</a>
             </nav>
         </div>
     </header>
 
-    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full space-y-20">
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full space-y-24">
 
         <!-- Live Protocol Advisory -->
         <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl shadow-sm flex items-start animate-fade-in">
@@ -80,10 +78,10 @@
                 <span class="text-amber-500 text-2xl">⚡</span>
             </div>
             <div class="ml-4">
-                <h3 class="text-sm font-bold text-amber-900 uppercase tracking-wide">Living Protocol Advisory (v2.2)</h3>
+                <h3 class="text-sm font-bold text-amber-900 uppercase tracking-wide">Living Protocol Advisory (v2.3)</h3>
                 <p class="text-sm text-amber-800 mt-1 leading-relaxed">
                     This playbook is actively maintained. Please check back often for optimized updates on <strong>Flows</strong> and <strong>Gem Prompts</strong>. 
-                    The Zero-G Protocol evolves rapidly to eliminate edge-cases and match the latest google updats.
+                    The Zero-G Protocol evolves rapidly to eliminate edge-cases and match the latest google updates.
                 </p>
             </div>
         </div>
@@ -96,16 +94,16 @@
                 </div>
                 <h2 class="text-5xl font-extrabold text-slate-900 leading-tight">Stop Chatting.<br><span class="text-indigo-600">Start Engineering.</span></h2>
                 <p class="text-lg text-slate-600 leading-relaxed border-l-4 border-indigo-200 pl-6">
-                    Ambiguity is the enemy. The Zero-G Protocol treats app development not as a conversation, but as a rigid <strong>Data Pipeline</strong>. By bifurcating the workload into parallel tracks—<strong>Logic (The Brain)</strong> and <strong>Design (The Skin)</strong>—we achieve absolute precision.
+                    Building an app isn't a conversation; it's a <strong>Journey</strong>. The Zero-G Protocol maps this journey into two distinct paths—<strong>The Brain (Logic)</strong> and <strong>The Skin (Design)</strong>—that merge only at the very end.
                 </p>
                 <div class="grid grid-cols-2 gap-4">
                     <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-sm text-center">
                         <div class="text-3xl font-bold text-slate-900">0%</div>
-                        <div class="text-sm text-slate-500 font-medium uppercase tracking-wide mt-1">Hallucination Risk</div>
+                        <div class="text-sm text-slate-500 font-medium uppercase tracking-wide mt-1">Guesswork</div>
                     </div>
                     <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-sm text-center">
                         <div class="text-3xl font-bold text-indigo-600">100%</div>
-                        <div class="text-sm text-slate-500 font-medium uppercase tracking-wide mt-1">Agentic Control</div>
+                        <div class="text-sm text-slate-500 font-medium uppercase tracking-wide mt-1">Clarity</div>
                     </div>
                 </div>
             </div>
@@ -120,11 +118,11 @@
             </div>
         </section>
 
-        <!-- Section 1.5: Prerequisites -->
+        <!-- Section 2: Prerequisites -->
         <section id="prerequisites" class="scroll-mt-24">
             <div class="mb-10">
                 <h2 class="text-3xl font-bold text-slate-900">Mission Prerequisites</h2>
-                <p class="text-slate-600 mt-3 text-lg">Ensure you have the necessary tools and clearance before initiating the protocol.</p>
+                <p class="text-slate-600 mt-3 text-lg">Ensure you have the right tools before starting the journey.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -139,14 +137,14 @@
                             <h3 class="text-xl font-bold text-slate-900">Google Gemini + Gems</h3>
                         </div>
                         <p class="text-slate-600 mb-6 leading-relaxed">
-                            The <strong>Core Intelligence Engine</strong> that powers your Gems (Agents). It handles the reasoning, PRD generation, and logic mapping.
+                            The <strong>Engine</strong>. This is where your AI team (Gems) lives. You will visit Gemini to consult your experts and get the blueprints.
                         </p>
                         <div class="bg-indigo-50 rounded-lg p-4 border border-indigo-100">
                             <h4 class="text-xs font-bold text-indigo-800 uppercase tracking-wide mb-2">Access Requirement</h4>
                             <p class="text-sm text-slate-700">
-                                <strong>Free Tier:</strong> Perfect for starting out and basic Pro usage.<br>
-                                <span class="block mt-2 text-indigo-700 font-semibold">Recommended: Google AI Plus / AI Pro</span>
-                                <span class="text-xs text-slate-500 block mt-1">Advisable for higher rate limits and access to the most capable models (3.0 Pro) during complex reasoning tasks.</span>
+                                <strong>Free Tier:</strong> Works for basic usage.<br>
+                                <span class="block mt-2 text-indigo-700 font-semibold">Recommended: Google AI Plus Or Pro</span>
+                                <span class="text-xs text-slate-500 block mt-1">Recommended for complex logic and higher usage limits.</span>
                             </p>
                         </div>
                     </div>
@@ -163,12 +161,12 @@
                             <h3 class="text-xl font-bold text-slate-900">Google Antigravity</h3>
                         </div>
                         <p class="text-slate-600 mb-6 leading-relaxed">
-                            The <strong>Agentic IDE (Integrated Development Environment)</strong>. This is your "Assembly Floor" where code is generated, previewed, and debugged in real-time.
+                            The <strong>Factory</strong>. This is where you assemble the parts. You will bring the blueprints (Logic & Design) here to build the final app.
                         </p>
                         <div class="bg-purple-50 rounded-lg p-4 border border-purple-100">
                             <h4 class="text-xs font-bold text-purple-800 uppercase tracking-wide mb-2">Function</h4>
                             <p class="text-sm text-slate-700">
-                                Antigravity acts as the host for the <strong>Zero-G Assembly</strong> phase. It allows you to run multiple agents (Architect, Designer, Builder) simultaneously to merge your Tech Specs and Design DNA into a functioning application.
+                                Antigravity is your IDE (Code Editor). It is the final destination of this journey where the "Zero-G Assembly" happens.
                             </p>
                         </div>
                     </div>
@@ -176,19 +174,31 @@
             </div>
         </section>
 
-        <!-- Section 2: The Vibe Stack -->
-        <section id="vibe-stack" class="scroll-mt-24">
+        <!-- Section 3: Your Team (Gems) -->
+        <section id="team-gems" class="scroll-mt-24">
             <div class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
                 <div class="max-w-2xl">
-                    <h2 class="text-3xl font-bold text-slate-900">The Vibe Stack (Mission Assets)</h2>
+                    <h2 class="text-3xl font-bold text-slate-900">Meet Your AI Team (Gems)</h2>
                     <p class="text-slate-600 mt-3 text-lg">
-                        You cannot run this protocol with a standard chat interface. Configure these 5 specialized "Gem" Agents before launch.
+                        Think of these as specialized employees. You don't write code; you manage these experts.
                     </p>
                 </div>
                 <!-- Path Toggle -->
                 <div class="bg-slate-100 p-1.5 rounded-xl flex shadow-inner">
-                    <button id="path-a-btn" onclick="toggleStackPath('A')" class="px-6 py-2.5 text-sm font-bold rounded-lg bg-white shadow text-indigo-700 transition-all">Path A: Clone Gems</button>
-                    <button id="path-b-btn" onclick="toggleStackPath('B')" class="px-6 py-2.5 text-sm font-bold rounded-lg text-slate-500 hover:text-slate-900 transition-all">Path B: Fabricate</button>
+                    <button id="path-a-btn" onclick="toggleStackPath('A')" class="px-6 py-2.5 text-sm font-bold rounded-lg bg-white shadow text-indigo-700 transition-all">My Team (Links)</button>
+                    <button id="path-b-btn" onclick="toggleStackPath('B')" class="px-6 py-2.5 text-sm font-bold rounded-lg text-slate-500 hover:text-slate-900 transition-all">Build Your Own</button>
+                </div>
+            </div>
+
+            <!-- Gem Education Block -->
+            <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8 flex flex-col md:flex-row items-center gap-6">
+                <div class="flex-shrink-0 bg-blue-100 p-3 rounded-full text-2xl">👋</div>
+                <div>
+                    <h4 class="font-bold text-blue-900 mb-2">What is a Gem and how do I use it?</h4>
+                    <p class="text-sm text-blue-800 leading-relaxed">
+                        A "Gem" is a custom version of Gemini trained for one specific job. <br>
+                        <strong>The Workflow:</strong> Click a Gem link below &rarr; It opens in Gemini &rarr; You paste your info &rarr; It generates a specific document &rarr; You <strong>COPY</strong> that document for the next step.
+                    </p>
                 </div>
             </div>
 
@@ -197,45 +207,50 @@
             </div>
         </section>
 
-        <!-- Section 3: The Flight Path -->
-        <section id="flight-path" class="scroll-mt-24">
+        <!-- Section 4: The Journey -->
+        <section id="assembly-journey" class="scroll-mt-24">
             <div class="mb-10">
-                <h2 class="text-3xl font-bold text-slate-900">The Flight Path (Execution Protocol)</h2>
-                <p class="text-slate-600 mt-3 text-lg">Follow the sequence strictly. Deviating creates anomalies.</p>
+                <h2 class="text-3xl font-bold text-slate-900">The Assembly Journey</h2>
+                <p class="text-slate-600 mt-3 text-lg">Your step-by-step roadmap. Follow the trail of documents from one specialist to the next.</p>
             </div>
 
-            <div class="flex flex-col lg:flex-row gap-8 min-h-[600px]">
-                <!-- Timeline Navigation (Left) -->
-                <div class="lg:w-1/4 flex flex-col space-y-2">
-                    <button onclick="setPhase(1)" id="nav-phase-1" class="phase-nav w-full p-5 text-left border-l-[6px] rounded-r-xl transition-all duration-200 group">
-                        <span class="text-xs font-bold uppercase tracking-wider block mb-1 opacity-70">Phase 1</span>
-                        <div class="font-bold text-lg">The Singularity</div>
-                        <div class="text-sm opacity-80 mt-1">Foundation & PRD</div>
+            <div class="flex flex-col lg:flex-row gap-8 min-h-[700px]">
+                <!-- Journey Map (Left) -->
+                <div class="lg:w-1/3 flex flex-col space-y-4">
+                    
+                    <button onclick="setPhase(1)" id="nav-phase-1" class="phase-nav w-full p-6 text-left border-l-[6px] rounded-r-xl transition-all duration-200 group relative">
+                        <span class="text-xs font-bold uppercase tracking-wider block mb-1 opacity-70">Step 1</span>
+                        <div class="font-bold text-lg">The Foundation</div>
+                        <div class="text-sm opacity-80 mt-1">Idea &rarr; Blueprint (PRD)</div>
                     </button>
-                    <button onclick="setPhase(2)" id="nav-phase-2" class="phase-nav w-full p-5 text-left border-l-[6px] rounded-r-xl transition-all duration-200 group">
-                        <span class="text-xs font-bold uppercase tracking-wider block mb-1 opacity-70">Phase 2</span>
-                        <div class="font-bold text-lg">The Logic Vector</div>
-                        <div class="text-sm opacity-80 mt-1">The Brain</div>
+                    
+                    <button onclick="setPhase(2)" id="nav-phase-2" class="phase-nav w-full p-6 text-left border-l-[6px] rounded-r-xl transition-all duration-200 group relative">
+                        <span class="text-xs font-bold uppercase tracking-wider block mb-1 opacity-70">Step 2</span>
+                        <div class="font-bold text-lg">Building The Brain</div>
+                        <div class="text-sm opacity-80 mt-1">PRD &rarr; Tech Specs</div>
                     </button>
-                    <button onclick="setPhase(3)" id="nav-phase-3" class="phase-nav w-full p-5 text-left border-l-[6px] rounded-r-xl transition-all duration-200 group">
-                        <span class="text-xs font-bold uppercase tracking-wider block mb-1 opacity-70">Phase 3</span>
-                        <div class="font-bold text-lg">The Design Vector</div>
-                        <div class="text-sm opacity-80 mt-1">The Skin</div>
+                    
+                    <button onclick="setPhase(3)" id="nav-phase-3" class="phase-nav w-full p-6 text-left border-l-[6px] rounded-r-xl transition-all duration-200 group relative">
+                        <span class="text-xs font-bold uppercase tracking-wider block mb-1 opacity-70">Step 3</span>
+                        <div class="font-bold text-lg">Crafting The Skin</div>
+                        <div class="text-sm opacity-80 mt-1">PRD &rarr; Visual Code</div>
                     </button>
-                    <button onclick="setPhase(4)" id="nav-phase-4" class="phase-nav w-full p-5 text-left border-l-[6px] rounded-r-xl transition-all duration-200 group">
-                        <span class="text-xs font-bold uppercase tracking-wider block mb-1 opacity-70">Phase 4</span>
-                        <div class="font-bold text-lg">Zero-G Assembly</div>
-                        <div class="text-sm opacity-80 mt-1">The Merge</div>
+                    
+                    <button onclick="setPhase(4)" id="nav-phase-4" class="phase-nav w-full p-6 text-left border-l-[6px] rounded-r-xl transition-all duration-200 group relative">
+                        <span class="text-xs font-bold uppercase tracking-wider block mb-1 opacity-70">Step 4</span>
+                        <div class="font-bold text-lg">The Merge</div>
+                        <div class="text-sm opacity-80 mt-1">Assembly in Antigravity</div>
                     </button>
-                    <button onclick="setPhase(5)" id="nav-phase-5" class="phase-nav w-full p-5 text-left border-l-[6px] rounded-r-xl transition-all duration-200 group">
-                        <span class="text-xs font-bold uppercase tracking-wider block mb-1 opacity-70">Phase 5</span>
-                        <div class="font-bold text-lg">Bonus Missions</div>
-                        <div class="text-sm opacity-80 mt-1">Red Team Ops</div>
+
+                    <button onclick="setPhase(5)" id="nav-phase-5" class="phase-nav w-full p-6 text-left border-l-[6px] rounded-r-xl transition-all duration-200 group relative">
+                        <span class="text-xs font-bold uppercase tracking-wider block mb-1 opacity-70">Step 5</span>
+                        <div class="font-bold text-lg">Stress Test</div>
+                        <div class="text-sm opacity-80 mt-1">Security & QA</div>
                     </button>
                 </div>
 
                 <!-- Phase Content (Right) -->
-                <div class="lg:w-3/4 bg-white p-10 rounded-2xl shadow-lg border border-slate-200 relative flex flex-col">
+                <div class="lg:w-2/3 bg-white p-10 rounded-2xl shadow-lg border border-slate-200 relative flex flex-col">
                     <div id="phase-content" class="flex-grow">
                         <!-- Content injected via JS -->
                     </div>
@@ -243,7 +258,7 @@
             </div>
         </section>
 
-        <!-- Section 4: Mission Control -->
+        <!-- Section 5: Mission Control -->
         <section id="mission-control" class="scroll-mt-24 pb-20">
             <h2 class="text-3xl font-bold text-slate-900 mb-8">Mission Control (Diagnostics)</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -252,27 +267,27 @@
                     <div class="absolute top-0 right-0 w-20 h-20 bg-rose-100 rounded-bl-full -mr-10 -mt-10 opacity-50 transition-opacity group-hover:opacity-100"></div>
                     <div class="flex items-center space-x-4 mb-4 relative z-10">
                         <div class="w-10 h-10 bg-rose-200 text-rose-700 rounded-lg flex items-center justify-center font-bold text-xl">!</div>
-                        <h3 class="font-bold text-lg text-slate-900">Anomaly: Ugly UI</h3>
+                        <h3 class="font-bold text-lg text-slate-900">Ugly UI?</h3>
                     </div>
-                    <p class="text-slate-600 relative z-10">The interface looks generic, inconsistent, or lacks branding.</p>
+                    <p class="text-slate-600 relative z-10">The app looks generic or unstyled.</p>
                 </div>
 
                 <div class="group bg-amber-50 border border-amber-100 rounded-2xl p-8 hover:shadow-lg transition-all cursor-pointer relative overflow-hidden" onclick="showFix('logic')">
                     <div class="absolute top-0 right-0 w-20 h-20 bg-amber-100 rounded-bl-full -mr-10 -mt-10 opacity-50 transition-opacity group-hover:opacity-100"></div>
                     <div class="flex items-center space-x-4 mb-4 relative z-10">
                         <div class="w-10 h-10 bg-amber-200 text-amber-700 rounded-lg flex items-center justify-center font-bold text-xl">!</div>
-                        <h3 class="font-bold text-lg text-slate-900">Anomaly: Logic Fail</h3>
+                        <h3 class="font-bold text-lg text-slate-900">Broken Logic?</h3>
                     </div>
-                    <p class="text-slate-600 relative z-10">Code loops, state is broken, or the app doesn't functional logically.</p>
+                    <p class="text-slate-600 relative z-10">Buttons don't work or flows loop infinitely.</p>
                 </div>
 
                 <div class="group bg-blue-50 border border-blue-100 rounded-2xl p-8 hover:shadow-lg transition-all cursor-pointer relative overflow-hidden" onclick="showFix('files')">
                     <div class="absolute top-0 right-0 w-20 h-20 bg-blue-100 rounded-bl-full -mr-10 -mt-10 opacity-50 transition-opacity group-hover:opacity-100"></div>
                     <div class="flex items-center space-x-4 mb-4 relative z-10">
                         <div class="w-10 h-10 bg-blue-200 text-blue-700 rounded-lg flex items-center justify-center font-bold text-xl">!</div>
-                        <h3 class="font-bold text-lg text-slate-900">Anomaly: Chaos</h3>
+                        <h3 class="font-bold text-lg text-slate-900">Messy Files?</h3>
                     </div>
-                    <p class="text-slate-600 relative z-10">File structure is ambiguous, messy, or seemingly random.</p>
+                    <p class="text-slate-600 relative z-10">The file structure is chaotic.</p>
                 </div>
             </div>
 
@@ -297,7 +312,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
             <div class="mb-6 md:mb-0 flex items-center space-x-3">
                  <div class="w-6 h-6 bg-slate-200 rounded flex items-center justify-center text-slate-500 font-bold text-xs">Z</div>
-                 <span class="font-bold text-slate-900">Zero-G Playbook v2.2</span>
+                 <span class="font-bold text-slate-900">Zero-G Playbook v2.3</span>
             </div>
             <div class="text-sm text-center md:text-right text-slate-500">
                 <p class="mb-1 font-medium">© Kabiru Sambo | <a href="https://linkedin.com/in/kabiru-sambo" target="_blank" class="text-indigo-600 hover:text-indigo-800 underline">LinkedIn</a></p>
@@ -312,37 +327,37 @@
         // --- DATA STORE ---
         const gemsData = [
             {
-                name: "PRD Architect",
+                name: "1. PRD Architect",
                 role: "The Visionary",
-                desc: "Transmutes raw concepts into structured Product Requirement Documents.",
+                desc: "Starts the journey. Turns your raw idea into a professional blueprint.",
                 link: "https://gemini.google.com/gem/1dQ7d-kiXpTwCLllqULFCx3W7q6vsdAHV?usp=sharing",
                 prompt: "You are the PRD Architect. Output a comprehensive PRD based on my raw idea. Structure: Goal, User Personas, Functional Requirements, Non-functional Requirements."
             },
             {
-                name: "User Journey Mapper",
+                name: "2. User Journey Mapper",
                 role: "The Strategist",
-                desc: "Converts PRDs into strict boolean logic flowcharts.",
+                desc: "Takes the Blueprint and figures out the logic and user flow.",
                 link: "https://gemini.google.com/gem/1dBxX5oXDMDbwvj09kNxAZ1w-MZ7xjsy6?usp=sharing",
                 prompt: "You are the User Journey Mapper. Take the PRD and create strict boolean logic flows and error state mappings."
             },
             {
-                name: "UX Translator",
+                name: "3. UX Translator",
                 role: "The Architect",
-                desc: "Compiles flows into a technical blueprint (tech_specs.md).",
+                desc: "Translates the logic flow into a technical file structure for the app.",
                 link: "https://gemini.google.com/gem/1OtTCRDQA-W7IbXhYdHlzNbSlZnXJBBqE?usp=sharing",
                 prompt: "You are the UX Translator. Convert these logic flows into a technical blueprint: tech_specs.md (File structure, Schema, State rules)."
             },
             {
-                name: "Brand DNA",
+                name: "4. Brand DNA",
                 role: "The Artist",
-                desc: "Extracts a visual design system (design_system.md) from the PRD.",
+                desc: "Reads your Blueprint and invents a look-and-feel (Colors, Fonts).",
                 link: "https://gemini.google.com/gem/1tlwev81dduX6Me8MbEsXr1_hsP1-f8wk?usp=sharing",
                 prompt: "You are Brand DNA. Extract a visual design system (Hex, Typography, Spacing) from the PRD as design_system.md."
             },
             {
-                name: "Stitch Whisperer",
+                name: "5. Stitch Whisperer",
                 role: "The Visualizer",
-                desc: "Generates precision prompts for Google Stitch prototyping.",
+                desc: "Writes the specific code instructions to create the User Interface.",
                 link: "https://gemini.google.com/gem/1KVMADryDLbvDuiSA_eQdAA5gEIj2NP71?usp=sharing",
                 prompt: "You are the Stitch Whisperer. Combine design_system.md and tech_specs.md to write a precision prompt for Google Stitch."
             }
@@ -350,92 +365,97 @@
 
         const phasesData = {
             1: {
-                title: "The Singularity",
-                subtitle: "Foundation & PRD",
-                goal: "Define the immutable 'What' and 'Who'.",
+                title: "The Foundation",
+                subtitle: "Idea &rarr; Blueprint",
+                goal: "We need a 'Source of Truth' before we build.",
                 steps: [
-                    { label: "Initialize", text: "Open <strong>PRD Architect</strong>." },
-                    { label: "Input", text: "Your raw concept (e.g., 'Uber for dog walkers')." },
-                    { label: "Output", text: "A comprehensive PRD." },
-                    { label: "Action", text: "Copy the PRD. This is now your <strong>Source of Truth</strong>." }
-                ]
+                    { label: "1. Visit the Visionary", text: "Click <strong>PRD Architect</strong> to open Gemini." },
+                    { label: "2. Tell your story", text: "Type your raw idea (e.g., 'Uber for dog walkers') into the chat." },
+                    { label: "3. Copy the Blueprint", text: "It will generate a 'Product Requirement Document' (PRD). <br><span class='text-indigo-600 font-bold'>COPY ALL TEXT</span>. This is your master plan." }
+                ],
+                nextStep: "Take your copied Blueprint to Step 2."
             },
             2: {
-                title: "The Logic Vector",
-                subtitle: "The Brain",
-                goal: "Codify functionality before a single line of code is written.",
+                title: "Building The Brain",
+                subtitle: "PRD &rarr; Tech Specs",
+                goal: "Define <em>how</em> it works before we define <em>how</em> it looks.",
                 steps: [
-                    { label: "Map Flows", text: "Feed PRD into <strong>User Journey Mapper</strong> to generate decision trees." },
-                    { label: "Translate", text: "Feed Logic Flows into <strong>UX Translator</strong>." },
-                    { label: "Artifact", text: "Generate <code>tech_specs.md</code> (Schema, State, Files). <span class='text-indigo-600 font-bold'>SAVE THIS.</span>" }
-                ]
+                    { label: "1. Consult the Strategist", text: "Click <strong>User Journey Mapper</strong>. Paste your PRD Blueprint." },
+                    { label: "2. Get the Logic", text: "Copy the Logic Flow it generates." },
+                    { label: "3. Consult the Architect", text: "Click <strong>UX Translator</strong>. Paste that Logic Flow." },
+                    { label: "4. Save the Specs", text: "It will generate <code>tech_specs.md</code>. <span class='text-indigo-600 font-bold'>COPY/SAVE THIS</span>. This is the brain of your app." }
+                ],
+                nextStep: "Brain is ready. Now we need the Skin (Step 3)."
             },
             3: {
-                title: "The Design Vector",
-                subtitle: "The Skin",
-                goal: "Crystallize the aesthetic.",
+                title: "Crafting The Skin",
+                subtitle: "PRD &rarr; Visual Code",
+                goal: "Create the design system and frontend code.",
                 steps: [
-                    { label: "Extract DNA", text: "Feed PRD into <strong>Brand DNA</strong>." },
-                    { label: "Artifact", text: "Generate <code>design_system.md</code>. <span class='text-indigo-600 font-bold'>SAVE THIS.</span>" },
-                    { label: "Prompting", text: "Feed <code>design_system.md</code> + <code>tech_specs.md</code> into <strong>Stitch Whisperer</strong>." },
-                    { label: "Render", text: "Execute prompt in Google Stitch to get UI Code." }
-                ]
+                    { label: "1. Consult the Artist", text: "Click <strong>Brand DNA</strong>. Paste your original PRD Blueprint." },
+                    { label: "2. Save the Style", text: "Copy the <code>design_system.md</code> it creates." },
+                    { label: "3. Consult the Visualizer", text: "Click <strong>Stitch Whisperer</strong>. Paste the <code>design_system.md</code> AND your <code>tech_specs.md</code> (from Step 2)." },
+                    { label: "4. Get the UI Code", text: "Copy the code/prompt it generates." }
+                ],
+                nextStep: "You have the Brain and the Skin. Time to Merge (Step 4)."
             },
             4: {
-                title: "Zero-G Assembly",
-                subtitle: "The Merge",
-                goal: "Fuse Brain and Skin in the Agentic IDE using Parallel Agents.",
+                title: "The Merge",
+                subtitle: "Assembly in Antigravity",
+                goal: "Bring your documents into the factory (Antigravity) to build the app.",
                 customHtml: `
                     <div class="bg-slate-900 rounded-xl p-6 font-mono text-sm text-slate-300 border border-slate-800 shadow-2xl relative overflow-hidden">
                         <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-emerald-500"></div>
                         <div class="flex items-center justify-between mb-4 border-b border-slate-700 pb-2">
-                            <span class="text-yellow-400 font-bold">⚠️ PROTOCOL: MULTI-AGENT ORCHESTRATION</span>
-                            <span class="text-xs text-slate-500">System: Antigravity</span>
+                            <span class="text-yellow-400 font-bold">⚠️ FACTORY FLOOR: ANTIGRAVITY</span>
+                            <span class="text-xs text-slate-500">Action: Spin up 3 Agents</span>
                         </div>
-                        <p class="mb-6 text-slate-400 italic bg-slate-800/50 p-3 rounded">Do not paste everything into one chat. Spin up 3 separate Agents in parallel.</p>
+                        <p class="mb-6 text-slate-400 italic bg-slate-800/50 p-3 rounded">
+                            Open <strong>Google Antigravity</strong>. Do not paste everything in one box. Create 3 parallel agents:
+                        </p>
                         
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                            <div class="bg-slate-800 p-3 rounded border border-slate-700">
-                                <div class="text-indigo-400 font-bold mb-1">AGENT 1: ARCHITECT</div>
-                                <div class="text-xs text-slate-400 mb-2">Role: The Brain</div>
-                                <div class="text-xs text-green-400">Context: [PASTE tech_specs.md]</div>
+                            <div class="bg-slate-800 p-4 rounded border border-slate-700">
+                                <div class="text-indigo-400 font-bold mb-1">AGENT 1 (Brain)</div>
+                                <div class="text-xs text-slate-500 mb-2">Paste Tech Specs here</div>
+                                <div class="text-xs text-green-400">"You are the Architect. Build this file structure."</div>
                             </div>
-                            <div class="bg-slate-800 p-3 rounded border border-slate-700">
-                                <div class="text-purple-400 font-bold mb-1">AGENT 2: DESIGNER</div>
-                                <div class="text-xs text-slate-400 mb-2">Role: The Skin</div>
-                                <div class="text-xs text-green-400">Context: [PASTE design_system.md]</div>
+                            <div class="bg-slate-800 p-4 rounded border border-slate-700">
+                                <div class="text-purple-400 font-bold mb-1">AGENT 2 (Skin)</div>
+                                <div class="text-xs text-slate-500 mb-2">Paste Design System here</div>
+                                <div class="text-xs text-green-400">"You are the Designer. Enforce these styles."</div>
                             </div>
-                            <div class="bg-slate-800 p-3 rounded border border-slate-700">
-                                <div class="text-blue-400 font-bold mb-1">AGENT 3: BUILDER</div>
-                                <div class="text-xs text-slate-400 mb-2">Role: Visuals</div>
-                                <div class="text-xs text-green-400">Context: [PASTE STITCH CODE]</div>
+                            <div class="bg-slate-800 p-4 rounded border border-slate-700">
+                                <div class="text-blue-400 font-bold mb-1">AGENT 3 (Visuals)</div>
+                                <div class="text-xs text-slate-500 mb-2">Paste Stitch Code here</div>
+                                <div class="text-xs text-green-400">"You are the Builder. Implement this frontend."</div>
                             </div>
                         </div>
 
-                        <div class="pt-4 border-t border-slate-700">
-                            <span class="text-red-400 font-bold">EXECUTION TASK (ORCHESTRATOR):</span><br>
-                            <span class="text-slate-200">"Initialize the project. Wire the Builder's frontend to the Architect's logic. Apply the Designer's variables."</span>
+                        <div class="pt-4 border-t border-slate-700 text-center">
+                            <span class="text-red-400 font-bold block mb-1">FINAL COMMAND (THE ORCHESTRATOR):</span>
+                            <span class="text-white text-lg">"Initialize the project. Wire the Builder's frontend to the Architect's logic. Apply the Designer's variables."</span>
                         </div>
                     </div>
                 `
             },
             5: {
-                title: "Bonus Missions",
-                subtitle: "Advanced Ops",
-                goal: "Harden the build with specialized 'Red Team' agents.",
+                title: "Stress Test",
+                subtitle: "Red Team Ops",
+                goal: "Your app is built. Now let's try to break it to make it stronger.",
                 customHtml: `
                     <div class="grid grid-cols-1 gap-6">
                         <div class="bg-indigo-50 border-l-4 border-indigo-500 p-6 rounded-r-xl">
-                            <h4 class="font-bold text-indigo-900 mb-1">Bonus Agent 1: The Sentinel (Security)</h4>
-                            <p class="text-sm text-indigo-700 mb-3 font-medium">Prompt:</p>
-                            <div class="bg-white p-3 rounded border border-indigo-100 font-mono text-xs text-slate-600">
+                            <h4 class="font-bold text-indigo-900 mb-1">Mission 1: Security Scan</h4>
+                            <p class="text-sm text-slate-600 mb-3">Paste this into Antigravity to check for leaks:</p>
+                            <div class="bg-white p-3 rounded border border-indigo-100 font-mono text-xs text-slate-600 select-all cursor-pointer hover:bg-slate-50">
                                 "Scan the current codebase for vulnerabilities. Check for SQL injection risks, exposed API keys, and unsecured endpoints. Propose a patch for every issue found."
                             </div>
                         </div>
                         <div class="bg-purple-50 border-l-4 border-purple-500 p-6 rounded-r-xl">
-                            <h4 class="font-bold text-purple-900 mb-1">Bonus Agent 2: The Crash Test Dummy (QA)</h4>
-                            <p class="text-sm text-purple-700 mb-3 font-medium">Prompt:</p>
-                            <div class="bg-white p-3 rounded border border-purple-100 font-mono text-xs text-slate-600">
+                            <h4 class="font-bold text-purple-900 mb-1">Mission 2: Chaos Monkey</h4>
+                            <p class="text-sm text-slate-600 mb-3">Paste this to test stability:</p>
+                            <div class="bg-white p-3 rounded border border-purple-100 font-mono text-xs text-slate-600 select-all cursor-pointer hover:bg-slate-50">
                                 "Act as a malicious user. Generate edge-case inputs (negative numbers, emojis in text fields, rapid-fire clicks) and attempt to break the state logic. Report all bugs."
                             </div>
                         </div>
@@ -447,15 +467,15 @@
         const fixes = {
             ugly: {
                 title: "Missing Brand DNA",
-                content: "<strong>Root Cause:</strong> You skipped Phase 3 or failed to enforce the design system.<br><br><strong>Correction:</strong> Reinject <code>design_system.md</code> into the Designer Agent and command: <em>'Enforce strict adherence to these variables.'</em>"
+                content: "<strong>Root Cause:</strong> You likely skipped Step 3 (The Skin). The AI doesn't know what colors or fonts to use.<br><br><strong>Correction:</strong> Go back to Step 3. Get the <code>design_system.md</code> from the Brand DNA Gem. Paste it into the Designer Agent."
             },
             logic: {
                 title: "Hallucinated Logic",
-                content: "<strong>Root Cause:</strong> The AI is guessing the flow because the logic wasn't explicitly provided.<br><br><strong>Correction:</strong> You skipped the Logic Vector. Reinject <code>tech_specs.md</code> into the Architect Agent to restore the 'Brain' of the operation."
+                content: "<strong>Root Cause:</strong> The AI is guessing how the app works because it didn't get the 'Brain'.<br><br><strong>Correction:</strong> Go back to Step 2. Get the <code>tech_specs.md</code> from the UX Translator. Paste it into the Architect Agent."
             },
             files: {
                 title: "Ambiguous Architecture",
-                content: "<strong>Root Cause:</strong> The AI doesn't know where to put things.<br><br><strong>Correction:</strong> Force <strong>UX Translator</strong> to list the file tree explicitly, then command Antigravity: <em>'Create this exact file structure.'</em>"
+                content: "<strong>Root Cause:</strong> The AI is confused about file organization.<br><br><strong>Correction:</strong> Tell Antigravity: <em>'Look at the tech_specs.md file list. Re-organize the project to match that structure exactly.'</em>"
             }
         };
 
@@ -466,16 +486,16 @@
         function renderGems() {
             const grid = document.getElementById('gems-grid');
             grid.innerHTML = gemsData.map(gem => `
-                <div class="bg-white rounded-xl p-6 card-shadow border border-slate-100 flex flex-col h-full group">
-                    <div class="flex items-center justify-between mb-4">
+                <div class="bg-white rounded-xl p-6 card-shadow border border-slate-100 flex flex-col h-full group relative overflow-hidden">
+                    <div class="flex items-center justify-between mb-4 relative z-10">
                         <h3 class="font-bold text-lg text-slate-900 group-hover:text-indigo-600 transition-colors">${gem.name}</h3>
-                        <span class="text-xs font-bold bg-slate-100 text-slate-600 px-2 py-1 rounded uppercase tracking-wide">${gem.role}</span>
+                        <span class="text-[10px] font-bold bg-slate-100 text-slate-600 px-2 py-1 rounded uppercase tracking-wide">${gem.role}</span>
                     </div>
-                    <p class="text-slate-600 text-sm mb-6 flex-grow leading-relaxed">${gem.desc}</p>
-                    <div class="mt-auto pt-4 border-t border-slate-50">
+                    <p class="text-slate-600 text-sm mb-6 flex-grow leading-relaxed relative z-10">${gem.desc}</p>
+                    <div class="mt-auto pt-4 border-t border-slate-50 relative z-10">
                         ${currentStackPath === 'A' 
-                            ? `<a href="${gem.link}" target="_blank" class="flex items-center justify-center w-full bg-indigo-50 hover:bg-indigo-100 text-indigo-700 py-2.5 rounded-lg transition font-semibold text-sm">
-                                <span class="mr-2">🔗</span> Access Gem
+                            ? `<a href="${gem.link}" target="_blank" class="flex items-center justify-center w-full bg-indigo-50 hover:bg-indigo-100 text-indigo-700 py-2.5 rounded-lg transition font-semibold text-sm group-hover:shadow-md">
+                                <span class="mr-2">🔗</span> Open Gem
                                </a>`
                             : `<div class="bg-slate-800 p-3 rounded text-xs font-mono text-emerald-400 break-words border border-slate-700 shadow-inner">
                                 <span class="text-slate-500 block mb-1 uppercase text-[10px] font-bold">System Prompt:</span>
@@ -492,7 +512,6 @@
             const btnA = document.getElementById('path-a-btn');
             const btnB = document.getElementById('path-b-btn');
             
-            // Reset classes
             const activeClasses = ['bg-white', 'shadow', 'text-indigo-700'];
             const inactiveClasses = ['text-slate-500', 'hover:text-slate-900'];
             
@@ -531,38 +550,52 @@
             
             let html = `
                 <div class="animate-fade-in h-full flex flex-col">
-                    <div class="mb-6 border-b border-slate-100 pb-4">
-                        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Phase 0${phaseId}</span>
-                        <h3 class="text-3xl font-bold text-slate-900 mt-1">${data.title}</h3>
-                        <p class="text-lg text-slate-500">${data.subtitle}</p>
+                    <div class="mb-6 border-b border-slate-100 pb-4 flex justify-between items-end">
+                        <div>
+                            <span class="text-xs font-bold text-indigo-400 uppercase tracking-widest">Step 0${phaseId}</span>
+                            <h3 class="text-3xl font-bold text-slate-900 mt-1">${data.title}</h3>
+                        </div>
+                        <div class="hidden md:block text-right">
+                             <span class="text-sm text-slate-400 font-mono">${data.subtitle}</span>
+                        </div>
                     </div>
                     
-                    <div class="bg-indigo-50 border border-indigo-100 rounded-lg p-4 mb-8 flex items-start">
-                        <span class="text-2xl mr-3">🎯</span>
+                    <div class="bg-indigo-50 border border-indigo-100 rounded-lg p-5 mb-8 flex items-start">
+                        <span class="text-2xl mr-4">🎯</span>
                         <div>
-                            <span class="text-xs font-bold text-indigo-800 uppercase block mb-1">Phase Goal</span>
-                            <p class="text-indigo-900 font-medium">${data.goal}</p>
+                            <span class="text-xs font-bold text-indigo-800 uppercase block mb-1">Objective</span>
+                            <p class="text-indigo-900 font-medium leading-relaxed">${data.goal}</p>
                         </div>
                     </div>
             `;
 
             if (data.steps) {
-                html += `<div class="space-y-6">`;
+                html += `<div class="space-y-8 relative">
+                    <div class="absolute left-4 top-4 bottom-4 w-0.5 bg-slate-100 -z-10"></div>
+                `;
                 data.steps.forEach((step, index) => {
                     html += `
-                        <div class="flex">
-                            <div class="flex-shrink-0 mr-4 flex flex-col items-center">
-                                <div class="w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-sm shadow-md">${index + 1}</div>
-                                ${index !== data.steps.length - 1 ? '<div class="w-0.5 h-full bg-slate-200 mt-2"></div>' : ''}
+                        <div class="flex relative bg-white">
+                            <div class="flex-shrink-0 mr-6 flex flex-col items-center">
+                                <div class="w-9 h-9 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-sm shadow-md border-4 border-white z-10">${index + 1}</div>
                             </div>
-                            <div class="pb-6">
+                            <div class="pb-2 pt-1">
                                 <h4 class="font-bold text-slate-900 text-lg mb-1">${step.label}</h4>
-                                <p class="text-slate-600">${step.text}</p>
+                                <p class="text-slate-600 leading-relaxed">${step.text}</p>
                             </div>
                         </div>
                     `;
                 });
                 html += `</div>`;
+            }
+
+            if (data.nextStep) {
+                html += `
+                    <div class="mt-8 pt-6 border-t border-slate-100 flex items-center text-sm text-slate-500">
+                        <span class="mr-2">👉</span>
+                        <em>${data.nextStep}</em>
+                    </div>
+                `;
             }
 
             if (data.customHtml) {
